@@ -11,15 +11,15 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
 import java.util.logging.Level;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+//import org.slf4j.Logger;
+//import org.slf4j.LoggerFactory;
 
 /**
  *
  * @author Wei Cheng
  */
 public class EchoClientHandler extends Thread {
-    private static final Logger LOG = LoggerFactory.getLogger(EchoMultiServer.class);
+    //private static final Logger LOG = LoggerFactory.getLogger(EchoMultiServer.class);
     private static final String MSG_HEARTBEAT = "HBeat77";
     private Socket clientSocket;
     private PrintWriter out;
@@ -47,7 +47,7 @@ public class EchoClientHandler extends Thread {
             
             String inputLine;
             while ((inputLine = in.readLine()) != null) {
-                System.out.println("input: "+inputLine);
+                //System.out.println("input: "+inputLine);
                 if (inputLine.equals("")) continue;
                 if (inputLine == null) continue;
                 if (MSG_HEARTBEAT.equals(inputLine)) continue;
@@ -55,9 +55,10 @@ public class EchoClientHandler extends Thread {
                     out.println("bye");
                     break;
                 }
+                System.out.println(inputLine);
 
-                System.out.println("going to send: "+inputLine);
-                out.println(inputLine);
+                //System.out.println("going to send: "+inputLine);
+                //out.println(inputLine);
             }
 
             in.close();
@@ -65,7 +66,8 @@ public class EchoClientHandler extends Thread {
             clientSocket.close();
 
         } catch (IOException e) {
-            LOG.debug(e.getMessage());
+            System.out.println("error in EchoClientHandler of run"+ e.getMessage());
+            //LOG.debug(e.getMessage());
         }
     }
     

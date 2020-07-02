@@ -53,21 +53,26 @@ public class SystemInput extends Thread{
                         
                         for (Map.Entry<Integer, EchoClientHandler> entry : Map.entrySet()) {
                             System.out.println("SystemInput data: "+ entry.getKey() + "/" + entry.getValue());
-                            Map.get(entry.getKey()).getDataOutToClient().println("CMDid");
+                            Map.get(entry.getKey()).getDataOutToClient().println("id");
                         }
                         break;
                     case "2":
                         Map = server.getMap();
                         
                         for (Map.Entry<Integer, EchoClientHandler> entry : Map.entrySet()) {
-                            Map.get(entry.getKey()).getDataOutToClient().println("CMDrssh");
+                            Map.get(entry.getKey()).getDataOutToClient().println("rssh");
                         }
                         break;
                     case "3":
                         System.out.println("SystemInput 2");
                         break;
                     default:
-                        System.out.println("SystemInput default server reply: "+reply);
+                        //System.out.println("SystemInput default server reply: "+reply);
+                        Map = server.getMap();
+                        
+                        for (Map.Entry<Integer, EchoClientHandler> entry : Map.entrySet()) {
+                            Map.get(entry.getKey()).getDataOutToClient().println(reply);
+                        }
                 }
             } catch (IOException ex) {
                 Logger.getLogger(SystemInput.class.getName()).log(Level.SEVERE, null, ex);

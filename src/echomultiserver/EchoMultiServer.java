@@ -5,8 +5,8 @@
  */
 package echomultiserver;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+//import org.slf4j.Logger;
+//import org.slf4j.LoggerFactory;
 
 import java.net.*;
 import java.io.*;
@@ -19,7 +19,7 @@ import java.util.logging.Level;
  */
 public class EchoMultiServer {
     
-    private static final Logger LOG = LoggerFactory.getLogger(EchoMultiServer.class);
+    //private static final Logger LOG = LoggerFactory.getLogger(EchoMultiServer.class);
       
 
     public static void main(String[] args) {
@@ -33,7 +33,7 @@ public class EchoMultiServer {
         
         while (true){
             Map = server.getMap();
-            System.out.println("total map: "+Map.size());
+            //System.out.println("total map: "+Map.size());
             try {
                 Thread.sleep(1000);
             } catch (InterruptedException ex) {
